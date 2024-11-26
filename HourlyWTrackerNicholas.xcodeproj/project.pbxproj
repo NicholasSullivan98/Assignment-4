@@ -51,11 +51,30 @@
 			);
 			target = 413040722CF6649B00AA67A6 /* HourlyWTrackerNicholasWidgetExtension */;
 		};
+		4130408C2CF6669200AA67A6 /* Exceptions for "HourlyWTrackerNicholas" folder in "HourlyWTrackerNicholasWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MyLocationManager.swift,
+				Weather.swift,
+			);
+			target = 413040722CF6649B00AA67A6 /* HourlyWTrackerNicholasWidgetExtension */;
+		};
+		413040952CF6745600AA67A6 /* Exceptions for "HourlyWTrackerNicholas" folder in "HourlyWTrackerNicholas" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 41303F652CF63EF300AA67A6 /* HourlyWTrackerNicholas */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		41303F682CF63EF300AA67A6 /* HourlyWTrackerNicholas */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				413040952CF6745600AA67A6 /* Exceptions for "HourlyWTrackerNicholas" folder in "HourlyWTrackerNicholas" target */,
+				4130408C2CF6669200AA67A6 /* Exceptions for "HourlyWTrackerNicholas" folder in "HourlyWTrackerNicholasWidgetExtension" target */,
+			);
 			path = HourlyWTrackerNicholas;
 			sourceTree = "<group>";
 		};
@@ -376,6 +395,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"HourlyWTrackerNicholas/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HourlyWTrackerNicholas/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location data needs to fetch weather data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -405,6 +425,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"HourlyWTrackerNicholas/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HourlyWTrackerNicholas/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location data needs to fetch weather data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

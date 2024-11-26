@@ -82,7 +82,7 @@ class MyLocationManager : NSObject, ObservableObject, CLLocationManagerDelegate 
                     DispatchQueue.main.async {
                         self.weather = weatherResponse
                     }
-                    print(weatherResponse)
+                    //print(weatherResponse)
                 } catch {
                     print("error \(error)")
                 }
@@ -90,8 +90,6 @@ class MyLocationManager : NSObject, ObservableObject, CLLocationManagerDelegate 
         }
         
         task.resume()
-        
-        //print("Forecast: \(weather?.forecast)")
     }
     
     func getCoordinates(for cityName: String) {
