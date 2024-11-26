@@ -6,14 +6,65 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		413040762CF6649B00AA67A6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413040752CF6649B00AA67A6 /* WidgetKit.framework */; };
+		413040782CF6649B00AA67A6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413040772CF6649B00AA67A6 /* SwiftUI.framework */; };
+		413040852CF6649C00AA67A6 /* HourlyWTrackerNicholasWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 413040732CF6649B00AA67A6 /* HourlyWTrackerNicholasWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		413040832CF6649C00AA67A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41303F5E2CF63EF300AA67A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 413040722CF6649B00AA67A6;
+			remoteInfo = HourlyWTrackerNicholasWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		413040862CF6649C00AA67A6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				413040852CF6649C00AA67A6 /* HourlyWTrackerNicholasWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		41303F662CF63EF300AA67A6 /* HourlyWTrackerNicholas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HourlyWTrackerNicholas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		413040732CF6649B00AA67A6 /* HourlyWTrackerNicholasWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HourlyWTrackerNicholasWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		413040752CF6649B00AA67A6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		413040772CF6649B00AA67A6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		413040892CF6649C00AA67A6 /* Exceptions for "HourlyWTrackerNicholasWidget" folder in "HourlyWTrackerNicholasWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 413040722CF6649B00AA67A6 /* HourlyWTrackerNicholasWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		41303F682CF63EF300AA67A6 /* HourlyWTrackerNicholas */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = HourlyWTrackerNicholas;
+			sourceTree = "<group>";
+		};
+		413040792CF6649B00AA67A6 /* HourlyWTrackerNicholasWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				413040892CF6649C00AA67A6 /* Exceptions for "HourlyWTrackerNicholasWidget" folder in "HourlyWTrackerNicholasWidgetExtension" target */,
+			);
+			path = HourlyWTrackerNicholasWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,6 +77,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		413040702CF6649B00AA67A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				413040782CF6649B00AA67A6 /* SwiftUI.framework in Frameworks */,
+				413040762CF6649B00AA67A6 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				41303F682CF63EF300AA67A6 /* HourlyWTrackerNicholas */,
+				413040792CF6649B00AA67A6 /* HourlyWTrackerNicholasWidget */,
+				413040742CF6649B00AA67A6 /* Frameworks */,
 				41303F672CF63EF300AA67A6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +103,18 @@
 			isa = PBXGroup;
 			children = (
 				41303F662CF63EF300AA67A6 /* HourlyWTrackerNicholas.app */,
+				413040732CF6649B00AA67A6 /* HourlyWTrackerNicholasWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		413040742CF6649B00AA67A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				413040752CF6649B00AA67A6 /* WidgetKit.framework */,
+				413040772CF6649B00AA67A6 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +127,12 @@
 				41303F622CF63EF300AA67A6 /* Sources */,
 				41303F632CF63EF300AA67A6 /* Frameworks */,
 				41303F642CF63EF300AA67A6 /* Resources */,
+				413040862CF6649C00AA67A6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				413040842CF6649C00AA67A6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				41303F682CF63EF300AA67A6 /* HourlyWTrackerNicholas */,
@@ -69,6 +143,28 @@
 			productName = HourlyWTrackerNicholas;
 			productReference = 41303F662CF63EF300AA67A6 /* HourlyWTrackerNicholas.app */;
 			productType = "com.apple.product-type.application";
+		};
+		413040722CF6649B00AA67A6 /* HourlyWTrackerNicholasWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4130408A2CF6649C00AA67A6 /* Build configuration list for PBXNativeTarget "HourlyWTrackerNicholasWidgetExtension" */;
+			buildPhases = (
+				4130406F2CF6649B00AA67A6 /* Sources */,
+				413040702CF6649B00AA67A6 /* Frameworks */,
+				413040712CF6649B00AA67A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				413040792CF6649B00AA67A6 /* HourlyWTrackerNicholasWidget */,
+			);
+			name = HourlyWTrackerNicholasWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = HourlyWTrackerNicholasWidgetExtension;
+			productReference = 413040732CF6649B00AA67A6 /* HourlyWTrackerNicholasWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +177,9 @@
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					41303F652CF63EF300AA67A6 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					413040722CF6649B00AA67A6 = {
 						CreatedOnToolsVersion = 16.1;
 					};
 				};
@@ -100,12 +199,20 @@
 			projectRoot = "";
 			targets = (
 				41303F652CF63EF300AA67A6 /* HourlyWTrackerNicholas */,
+				413040722CF6649B00AA67A6 /* HourlyWTrackerNicholasWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		41303F642CF63EF300AA67A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		413040712CF6649B00AA67A6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +229,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4130406F2CF6649B00AA67A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		413040842CF6649C00AA67A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 413040722CF6649B00AA67A6 /* HourlyWTrackerNicholasWidgetExtension */;
+			targetProxy = 413040832CF6649C00AA67A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		41303F722CF63EF400AA67A6 /* Debug */ = {
@@ -302,6 +424,58 @@
 			};
 			name = Release;
 		};
+		413040872CF6649C00AA67A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HourlyWTrackerNicholasWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HourlyWTrackerNicholasWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sullnich.HourlyWTrackerNicholas.HourlyWTrackerNicholasWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		413040882CF6649C00AA67A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HourlyWTrackerNicholasWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HourlyWTrackerNicholasWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sullnich.HourlyWTrackerNicholas.HourlyWTrackerNicholasWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -319,6 +493,15 @@
 			buildConfigurations = (
 				41303F752CF63EF400AA67A6 /* Debug */,
 				41303F762CF63EF400AA67A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4130408A2CF6649C00AA67A6 /* Build configuration list for PBXNativeTarget "HourlyWTrackerNicholasWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				413040872CF6649C00AA67A6 /* Debug */,
+				413040882CF6649C00AA67A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
