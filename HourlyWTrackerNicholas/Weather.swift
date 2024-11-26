@@ -10,9 +10,9 @@ import Foundation
 
 // Root model renamed to Weather
 struct Weather: Codable {
-    let location: Location
+    let location: Location?
     let current: Current
-    let forecast: Forecast
+    let forecast: Forecast?
 }
 
 // Location model
