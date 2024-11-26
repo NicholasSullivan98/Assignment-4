@@ -1,10 +1,9 @@
 //
 //  MyLocationManager.swift
-//  Assignment3
+//  Assignment4
 //
-//  Created by Nicholas Sullivan on 2024-11-13.
+//  Created by Nicholas Sullivan on 2024-11-26.
 //  ID: 991612414
-
 
 import Foundation
 import CoreLocation
@@ -13,14 +12,14 @@ import Combine
 
 class MyLocationManager : NSObject, ObservableObject, CLLocationManagerDelegate {
     
-    @Published var location : CLLocation = CLLocation()
-    @Published var coordinate : CLLocationCoordinate2D?
+    @Published var location: CLLocation = CLLocation()
+    @Published var coordinate: CLLocationCoordinate2D?
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.4561, longitude: -79.7000),
                                                span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
     
-    @Published var mapItems : [MKMapItem] = []
-    @Published var mkRoute : MKRoute?
-    @Published var weather: Weather?
+    @Published var mapItems: [MKMapItem] = []
+    @Published var mkRoute: MKRoute?
+    @Published var weather: Weather?  // Updated to use Weather model
 
     let manager = CLLocationManager()
     
@@ -60,27 +59,8 @@ class MyLocationManager : NSObject, ObservableObject, CLLocationManagerDelegate 
             print("default")
         }
     }
-    /*
-    func searchLocation(for name: String) {
-        print(name)
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = name
-        region.center = self.location.coordinate // search around the user's current location
-        request.region = region
-        
-        let search = MKLocalSearch(request: request)
-        search.start { response, error in
-            guard let res = response else {
-                print("error location not found")
-                return
-            }
-            print(res.mapItems.count)
-            self.mapItems = res.mapItems
-        }
-    }
-    */
     
-    let baseUrlStr = "https://api.weatherapi.com/v1/current.json?key=7ec9ca3cd0304e50bfd203630241311"
+    let baseUrlStr = "https://api.weatherapi.com/v1/forecast.json?key=7ec9ca3cd0304e50bfd203630241311"
     
     func getWeather(for coordinate: CLLocationCoordinate2D) {
         let urlStr = baseUrlStr + "&q=" + String(coordinate.latitude) + "," + String(coordinate.longitude)
@@ -109,5 +89,8 @@ class MyLocationManager : NSObject, ObservableObject, CLLocationManagerDelegate 
         }
         
         task.resume()
+        
+        print("Forecast: \(weather?.forecast)")
     }
 }
+
