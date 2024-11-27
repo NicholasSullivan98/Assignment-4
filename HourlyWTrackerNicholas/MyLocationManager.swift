@@ -62,7 +62,7 @@ class MyLocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 
-    let baseUrlStr = "https://api.weatherapi.com/v1/forecast.json?key=7ec9ca3cd0304e50bfd2036302413112"
+    let baseUrlStr = "https://api.weatherapi.com/v1/forecast.json?key=7ec9ca3cd0304e50bfd203630241311"
 
     func getWeather(for coordinate: CLLocationCoordinate2D) {
         let urlStr = baseUrlStr + "&q=" + String(coordinate.latitude) + "," + String(coordinate.longitude)
