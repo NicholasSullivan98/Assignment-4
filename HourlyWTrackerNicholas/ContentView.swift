@@ -32,6 +32,11 @@ struct ContentView: View {
                 locationManager.getCoordinates(for: locationName)
             }
             
+            // Display geocoding error if it exists
+            if let error = locationManager.geocodingError {
+                Text(error).foregroundColor(.red).padding()
+            }
+            
             if let weather = locationManager.weather, let location = weather.location {
                 Text("\(location.name), \(location.region), \(location.country)")
                     .font(.title)
@@ -88,7 +93,7 @@ struct ContentView: View {
                 }
                 .padding(.top, 10)
             } else {
-                Text("Fetching weather data...")
+                Text("Error fetching weather data...")
                     .padding(.top, 20)
             }
         }
