@@ -56,7 +56,6 @@ struct ContentView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding(.horizontal)
-                    
                     if let forecast = weather.forecast?.forecastday.first {
                         let next7Hours = filterNext7Hours(from: forecast.hour)
                         
@@ -113,20 +112,49 @@ struct ContentView: View {
     func filterNext7Hours(from hours: [Hour]) -> [Hour] {
         let currentDate = Date()
         let calendar = Calendar.current
-        
-        let next7Hours = hours.filter { hour in
+
+        // Parse hours into (Hour, Date) tuples and sort them
+        let parsedHours = hours.compactMap { hour -> (Hour, Date)? in
             if let date = getDate(from: hour.time) {
-                return calendar.isDate(date, equalTo: currentDate, toGranularity: .day) && (date >= calendar.date(byAdding: .hour, value: -1, to: currentDate)!)
+                return (hour, date)
             }
-            return false
-        }.prefix(7)
+            return nil
+        }.sorted { $0.1 < $1.1 }
         
-        return Array(next7Hours)
+        // Filter out past hours and get the current hour and next 6 hours
+        var next7Hours: [Hour] = []
+        for (hour, date) in parsedHours {
+            if calendar.isDate(date, inSameDayAs: currentDate) && calendar.isDate(date, equalTo: currentDate, toGranularity: .hour) || date >= currentDate {
+                next7Hours.append(hour)
+            }
+            if next7Hours.count == 7 {
+                break
+            }
+        }
+
+        // If we don't have enough hours, add from the next day
+        if next7Hours.count < 7 {
+            for (hour, date) in parsedHours where date < currentDate {
+                next7Hours.append(hour)
+                if next7Hours.count == 7 {
+                    break
+                }
+            }
+        }
+
+        // Print debug information
+        for hour in next7Hours {
+            print("Hour: \(hour.time), Date: \(getDate(from: hour.time) ?? Date())")
+        }
+
+        return next7Hours
     }
-    
+
+
     func getDate(from dateString: String) -> Date? {
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        inputFormatter.timeZone = TimeZone.current
         return inputFormatter.date(from: dateString)
     }
     
@@ -144,6 +172,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
-
-

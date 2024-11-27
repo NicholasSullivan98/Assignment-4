@@ -3,7 +3,7 @@
 //  HourlyWTrackerNicholasWidget
 //
 //  Created by Nicholas Sullivan on 2024-11-26.
-//
+//  ID: 991612414
 
 import WidgetKit
 import SwiftUI
@@ -65,7 +65,6 @@ struct Provider: AppIntentTimelineProvider {
             let iconURLString = "https:\(firstHour.condition.icon)"
             Task {
                 if let iconURL = URL(string: iconURLString), let icon = await self.fetchImage(from: iconURL) {
-                    print("Icon URL: \(iconURL)") // Debug print
                     weatherEntry = WeatherEntry(date: Date(), cityName: weather.location?.name ?? "null", temperature: round(firstHour.temp_c * 100) / 100.0, icon: icon)
                 } else {
                     print("Failed to create URL from string: \(iconURLString)")
@@ -100,7 +99,6 @@ struct Provider: AppIntentTimelineProvider {
                 group.enter()
                 Task {
                     if let iconURL = URL(string: iconURLString), let icon = await self.fetchImage(from: iconURL) {
-                        print("Icon URL: \(iconURL)") // Debug print
                         let entry = WeatherEntry(date: Calendar.current.date(byAdding: .hour, value: index, to: currentDate)!, cityName: weather.location?.name ?? "null", temperature: round(hour.temp_c * 100) / 100.0, icon: icon)
                         weatherEntries.append(entry)
                     } else {
@@ -125,6 +123,12 @@ struct Provider: AppIntentTimelineProvider {
 struct HourlyWTrackerNicholasWidgetEntryView: View {
     var entry: Provider.Entry
 
+    private var shortDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+        return formatter.string(from: entry.date)
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(entry.cityName)
@@ -134,6 +138,8 @@ struct HourlyWTrackerNicholasWidgetEntryView: View {
             Image(uiImage: entry.icon)
                 .resizable()
                 .frame(width: 30, height: 30,alignment: .leading)
+            Text(shortDate)
+                .font(.subheadline)
             Text(entry.date, style: .time)
                 .font(.subheadline)
         }
@@ -142,7 +148,7 @@ struct HourlyWTrackerNicholasWidgetEntryView: View {
 
 struct HourlyWTrackerNicholasWidget: Widget {
     let kind: String = "HourlyWTrackerNicholasWidget"
-
+    
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             HourlyWTrackerNicholasWidgetEntryView(entry: entry)
